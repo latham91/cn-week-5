@@ -1,8 +1,10 @@
 import "./Person.css";
+import Job from "./Job";
 
 import PropTypes from "prop-types";
+import Pet from "./Pet";
 
-export default function Person({ name, age, hobbies }) {
+export default function Person({ name, age, jobTitle, petName, petType }) {
     return (
         <div className="card">
             <div className="card-header">
@@ -13,9 +15,10 @@ export default function Person({ name, age, hobbies }) {
                     <strong>Age:</strong> {age}
                 </p>
                 <p>
-                    <strong>Hobbies:</strong>
-                    <br />
-                    {hobbies.join(", ")}
+                    <Job jobTitle={jobTitle} />
+                </p>
+                <p>
+                    <Pet petName={petName} petType={petType} />
                 </p>
             </div>
         </div>
@@ -25,5 +28,7 @@ export default function Person({ name, age, hobbies }) {
 Person.propTypes = {
     name: PropTypes.string.isRequired,
     age: PropTypes.number.isRequired,
-    hobbies: PropTypes.array.isRequired,
+    jobTitle: PropTypes.string.isRequired,
+    petName: PropTypes.string.isRequired,
+    petType: PropTypes.string.isRequired,
 };
